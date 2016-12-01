@@ -1,0 +1,2 @@
+c:\users\colin\onedrive\documents\visual studio 2015\Projects\GestionnaireEmploiDuTemps\GestionnaireEmploiDuTemps\bin\Debug\GestionnaireEmploiDuTemps.exe.config
+C:\DEV\coursSql\GestionnaireEmploiDuTemps\GestionnaireEmploiDuTemps\bin\Debug\GestionnaireEmploiDuTemps.exe.config
