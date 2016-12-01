@@ -54,5 +54,14 @@ namespace GestionnaireEmploiDuTemps.Modele
             return new List<Session>();
         }
 
+        private Matiere matiere;
+
+        public Matiere Matiere
+        {
+            get { return matiere; }
+            set { matiere = value; }
+        }
+
+
     }
 }

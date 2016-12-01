@@ -10,6 +10,9 @@ namespace GestionnaireEmploiDuTemps.Modele
     {
         private DateTime dateDebut;
         private DateTime dateFin;
+        private Salle salle;
+        private Promotion promotion;
+         private Matiere matiere;
 
         public DateTime DateDebut
         {
@@ -22,5 +25,37 @@ namespace GestionnaireEmploiDuTemps.Modele
             get { return DateFin; }
             set { DateFin = value; }
         }
+
+        
+
+        public Salle Salle
+        {
+            get { return salle; }
+            set { salle = value; }
+        }
+
+        private Formateur formateur;
+
+        public Formateur Formateur
+        {
+            get { return formateur; }
+            set { formateur = value; }
+        }
+       
+
+        public Matiere Matiere
+        {
+            get { return matiere; }
+            set { matiere = value; }
+        }
+       
+
+        public Promotion Promotion
+        {
+            get { return promotion; }
+            set { promotion = value; }
+        }
+
+
     }
 }

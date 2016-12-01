@@ -10,19 +10,35 @@ namespace GestionnaireEmploiDuTemps.Modele
     {
 
         private string nom;
-
+        private float nmbrHeureTotal;
+        private List<Matiere> matiere;
+        private List<Promotion> promotion;
         public string Nom
         {
             get { return nom; }
             set { nom = value; }
         }
 
-        private float nmbrHeureTotal;
+        
 
         public float NmbrHeureTotal
         {
             get { return nmbrHeureTotal; }
             set { nmbrHeureTotal = value; }
+        }
+
+
+        public List<Matiere> Matiere
+        {
+            get { return matiere; }
+            set { matiere = value; }
+        }
+
+
+        public List<Promotion> Promotion
+        {
+            get { return promotion; }
+            set { promotion = value; }
         }
 
     }

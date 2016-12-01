@@ -11,7 +11,8 @@ namespace GestionnaireEmploiDuTemps.Modele
         private string nom;
         private DateTime dateDebut;
         private DateTime dateFin;
-
+        private List<Eleve> eleve;
+        private Formation formation;
         public string Nom
         {
             get { return nom; }
@@ -40,5 +41,21 @@ namespace GestionnaireEmploiDuTemps.Modele
         {
             return new List<Session>();
         }
+
+
+        public List<Eleve> Eleve
+        {
+            get { return eleve; }
+            set { eleve = value; }
+        }
+       
+
+        public Formation Formation
+        {
+            get { return formation; }
+            set { formation = value; }
+        }
+
+
     }
 }
