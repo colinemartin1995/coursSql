@@ -12,7 +12,7 @@ namespace GestionnaireEmploiDuTemps.Modele
         private string prenom;
         private string mail;
         private string telephone;
-
+        private Matiere matiere;
         public string Nom
         {
             get { return nom; }
@@ -54,7 +54,7 @@ namespace GestionnaireEmploiDuTemps.Modele
             return new List<Session>();
         }
 
-        private Matiere matiere;
+        
 
         public Matiere Matiere
         {

@@ -11,14 +11,21 @@ namespace GestionnaireEmploiDuTemps.Modele
         private string nom;
         private DateTime dateDebut;
         private DateTime dateFin;
-        private List<Eleve> eleve;
-        private Formation formation;
+        private List<Eleve> eleves;
+        private Formation formations;
+        private List<Session> sessions;
+
+        public List<Session> Sessions
+        {
+            get { return sessions; }
+            set { sessions = value; }
+        }
+
         public string Nom
         {
             get { return nom; }
             set { nom = value; }
         }
-
 
         public DateTime DateDebut
         {
@@ -32,9 +39,19 @@ namespace GestionnaireEmploiDuTemps.Modele
             set { dateFin = value; }
         }
 
-        public bool estDisponible(DateTime dateDebut, DateTime dateFin)
+        public bool estDisponible(DateTime dateDebutPlage, DateTime dateFinPlage) // date debut plage de disponibilité
         {
-            return true;
+           foreach(Session session in Sessions) // pour chaque session de la liste de sessions de notre promotion
+            {
+                if(session.DateFin > dateDebutPlage && session.DateDebut < dateFinPlage) 
+                {
+                    //Indisponible
+                    return false;
+
+                }
+                
+            }
+            return true; // on verifie toutes les sessions et elles respectent toutes la condition
         }
 
         public List<Session> getSession()
@@ -43,19 +60,30 @@ namespace GestionnaireEmploiDuTemps.Modele
         }
 
 
-        public List<Eleve> Eleve
+        public List<Eleve> Eleves
         {
-            get { return eleve; }
-            set { eleve = value; }
+            get { return eleves; }
+            set
+            {   
+                if (value.Count > 24)
+                {
+                    throw new EffectifException("Il y a plus de 24 élèves dans la promotion");
+
+                }
+
+
+                eleves = value;
+            }
         }
        
 
-        public Formation Formation
+        public Formation Formations
         {
-            get { return formation; }
-            set { formation = value; }
+            get { return formations; }
+            set { formations = value; }
         }
 
+        
 
     }
 }

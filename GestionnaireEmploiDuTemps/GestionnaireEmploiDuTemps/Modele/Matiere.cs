@@ -11,6 +11,14 @@ namespace GestionnaireEmploiDuTemps.Modele
         private string nom;
         private List<Formation> formation;
         private List<Formateur> formateur;
+        private List<Session> sessions;
+
+        public List<Session> Sessions
+        {
+            get { return sessions; }
+            set { sessions = value; }
+        }
+
         public string Nom
         {
             get { return nom; }

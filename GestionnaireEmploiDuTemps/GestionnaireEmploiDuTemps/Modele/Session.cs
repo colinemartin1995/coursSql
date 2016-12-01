@@ -8,12 +8,19 @@ namespace GestionnaireEmploiDuTemps.Modele
 {
     class Session
     {
-        private DateTime dateDebut;
+        public DateTime dateDebut;
         private DateTime dateFin;
         private Salle salle;
         private Promotion promotion;
-         private Matiere matiere;
+        private Matiere matiere;
 
+        public Session(DateTime dateDebut, DateTime dateFin)
+        {
+            if (dateDebut >  dateFin)
+            {
+                throw new DateException("L'heure de fin d'un cours ne peut être inférieure au l'heure de début");
+            }
+        }
         public DateTime DateDebut
         {
             get { return DateDebut; }

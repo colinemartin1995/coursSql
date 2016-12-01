@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Modele\Destinataire.cs" />
     <Compile Include="Modele\Absence.cs" />
+    <Compile Include="Modele\EffectifException.cs" />
     <Compile Include="Modele\Session.cs" />
     <Compile Include="Modele\Eleve.cs" />
     <Compile Include="MainWindow.xaml.cs">

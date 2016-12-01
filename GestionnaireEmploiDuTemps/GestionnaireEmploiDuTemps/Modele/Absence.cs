@@ -9,12 +9,12 @@ namespace GestionnaireEmploiDuTemps.Modele
     class Absence
     {
 
-    private Eleve eleve;
+    private Eleve eleves;
     private Session session;
-    public Eleve Eleve
+    public Eleve Eleves
         {
-            get { return eleve; }
-            set { eleve = value; }
+            get { return eleves; }
+            set { eleves = value; }
         }
 
     public Session Session
