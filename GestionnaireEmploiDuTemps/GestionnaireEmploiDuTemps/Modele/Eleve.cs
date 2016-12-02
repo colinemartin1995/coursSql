@@ -40,6 +40,15 @@ namespace GestionnaireEmploiDuTemps.Modele
             set { mail = value; }
         }
 
+
+        public Eleve(String nom, String prenom, string mail)
+        {
+            if(nom == null || prenom == null || mail == null)
+            {
+                throw new ChampsException("L'un des champs de l'élève n'est pas renseigné");
+            }
+        }
+
         public int getNbAbsences(DateTime dateDebut, DateTime dateFin)
         {
             int compteurAbsence;

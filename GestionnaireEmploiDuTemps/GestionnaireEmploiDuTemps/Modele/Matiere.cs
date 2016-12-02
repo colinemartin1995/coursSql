@@ -39,6 +39,12 @@ namespace GestionnaireEmploiDuTemps.Modele
             set { formation = value; }
         }
 
-
+        public Matiere(String nom)
+        {
+            if (nom == null)
+            {
+                throw new ChampsException("Le nom de la matière n'est pas renseigné");
+            }
+        }
     }
 }

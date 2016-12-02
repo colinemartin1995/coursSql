@@ -39,6 +39,13 @@ namespace GestionnaireEmploiDuTemps.Modele
             set { dateFin = value; }
         }
 
+        public Promotion(String nom, DateTime dateDebut, DateTime dateFin)
+        {
+            if(nom == null || dateDebut == null || DateFin == null)
+            {
+                throw  new ChampsException("L'un des champs de la promotion n'est pas rempli");
+            }
+        }
         public bool estDisponible(DateTime dateDebutPlage, DateTime dateFinPlage) // date debut plage de disponibilité
         {
            foreach(Session session in Sessions) // pour chaque session de la liste de sessions de notre promotion

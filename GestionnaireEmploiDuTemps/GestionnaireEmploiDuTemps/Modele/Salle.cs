@@ -17,6 +17,13 @@ namespace GestionnaireEmploiDuTemps.Modele
             set { sessions = value; }
         }
 
+        public Salle(String nom, int capacite)
+        {
+            if(nom == null || capacite == 0)
+            {
+                throw new ChampsException("L'un des champs de la salle n'est pas renseigné");
+            }
+        }
         public bool estDisponible(DateTime dateDebut, DateTime dateFin)
         {
             foreach (Session session in Sessions) // pour chaque session de la liste de sessions de notre promotion

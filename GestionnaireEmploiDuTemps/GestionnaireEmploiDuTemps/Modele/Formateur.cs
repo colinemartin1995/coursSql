@@ -50,8 +50,12 @@ namespace GestionnaireEmploiDuTemps.Modele
 
         public Formateur(String nom, String prenom, String mail, String telephone) // Constructeur pour Formateur
         {
-
+            if(nom == null || prenom == null || mail == null)
+            {
+                throw new ChampsException("L'un des champs du formateur n'est pas rempli");
+            }
         }
+
         public float heuresTravaillees(DateTime debutPeriode, DateTime finPeriode)
         {
             TimeSpan tempsDeTravail = new TimeSpan(0, 0, 0);
