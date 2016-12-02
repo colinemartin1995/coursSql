@@ -13,6 +13,13 @@ namespace GestionnaireEmploiDuTemps.Modele
         private string mail;
         private string telephone;
         private Matiere matiere;
+        private List<Session> sessions;
+
+        public List<Session> Sessions
+        {
+            get { return sessions; }
+            set { sessions = value; }
+        }
         public string Nom
         {
             get { return nom; }
@@ -39,19 +46,42 @@ namespace GestionnaireEmploiDuTemps.Modele
             get { return telephone; }
             set { telephone = value; }
         }
-        public float heuresTravailles(DateTime debutPeriode, DateTime finPeriode)
+        public float heuresTravaillees(DateTime debutPeriode, DateTime finPeriode)
         {
-            
-            
-        }
-        public bool estDisponible(DateTime dateDebut, DateTime dateFin)
-        {
-            return true;
+            TimeSpan tempsDeTravail = new TimeSpan(0, 0, 0);
+            float heuresTravaillees = 0;
+            foreach (Session session in Sessions)  // pour chaque session de la liste de sessions du Formateur
+            {
+         
+                if (session.DateFin > debutPeriode && session.DateDebut < finPeriode)
+                {
+                    tempsDeTravail += session.DateFin - session.DateDebut; //permet d'ajouter une valeur à une valeur existente ex temps1 + temps2
+                    //Indisponible
+                    // var hours = Convert.ToSingle(ts.TotalHours);
+                   heuresTravaillees = Convert.ToSingle(tempsDeTravail.TotalHours);
+                   
 
+                }
+            }
+            return heuresTravaillees;
+        }
+        public bool estDisponible(DateTime dateDebutPlage, DateTime dateFinPlage) // date debut plage de disponibilité
+        {
+            foreach (Session session in Sessions) // pour chaque session de la liste de sessions de notre promotion
+            {
+                if (session.DateFin > dateDebutPlage && session.DateDebut < dateFinPlage)
+                {
+                    //Indisponible
+                    return false;
+
+                }
+
+            }
+            return true; // on verifie toutes les sessions et elles respectent toutes la condition
         }
         public List<Session> getSession()
         {
-            return new List<Session>();
+            return this.Sessions;
         }
 
         

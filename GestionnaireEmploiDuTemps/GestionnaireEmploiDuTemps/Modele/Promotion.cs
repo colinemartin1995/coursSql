@@ -56,7 +56,7 @@ namespace GestionnaireEmploiDuTemps.Modele
 
         public List<Session> getSession()
         {
-            return new List<Session>();
+            return this.Sessions;
         }
 
 

@@ -9,7 +9,7 @@ namespace GestionnaireEmploiDuTemps.Modele
     class Session
     {
         public DateTime dateDebut;
-        private DateTime dateFin;
+        public DateTime dateFin;
         private Salle salle;
         private Promotion promotion;
         private Matiere matiere;
