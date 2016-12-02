@@ -13,6 +13,14 @@ namespace GestionnaireEmploiDuTemps.Modele
         private Salle salle;
         private Promotion promotion;
         private Matiere matiere;
+        private List<Absence> absences;
+
+        public List<Absence> Absences
+        {
+            get { return absences; }
+            set { absences = value; }
+        }
+
 
         public Session(DateTime dateDebut, DateTime dateFin)
         {
