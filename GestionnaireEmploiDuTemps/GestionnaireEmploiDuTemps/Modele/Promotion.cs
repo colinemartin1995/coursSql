@@ -45,6 +45,9 @@ namespace GestionnaireEmploiDuTemps.Modele
             {
                 throw  new ChampsException("L'un des champs de la promotion n'est pas rempli");
             }
+            this.nom = nom;
+            this.dateDebut = dateDebut;
+            this.dateFin = dateFin;
         }
         public bool estDisponible(DateTime dateDebutPlage, DateTime dateFinPlage) // date debut plage de disponibilité
         {

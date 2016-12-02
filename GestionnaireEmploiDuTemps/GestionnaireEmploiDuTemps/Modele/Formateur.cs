@@ -54,6 +54,9 @@ namespace GestionnaireEmploiDuTemps.Modele
             {
                 throw new ChampsException("L'un des champs du formateur n'est pas rempli");
             }
+            this.nom = nom;
+            this.prenom = prenom;
+            this.mail = mail;
         }
 
         public float heuresTravaillees(DateTime debutPeriode, DateTime finPeriode)

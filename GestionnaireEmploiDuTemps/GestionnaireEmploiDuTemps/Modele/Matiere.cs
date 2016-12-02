@@ -45,6 +45,7 @@ namespace GestionnaireEmploiDuTemps.Modele
             {
                 throw new ChampsException("Le nom de la matière n'est pas renseigné");
             }
+            this.nom = nom;
         }
     }
 }

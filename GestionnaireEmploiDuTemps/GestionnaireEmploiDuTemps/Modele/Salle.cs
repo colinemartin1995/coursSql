@@ -10,11 +10,25 @@ namespace GestionnaireEmploiDuTemps.Modele
     {
 
         private List<Session> sessions;
+        private int capacite;
+        private string nom;
+
+        public string Nom
+        {
+            get { return nom; }
+            set { nom = value; }
+        }
+
 
         public List<Session> Sessions
         {
             get { return sessions; }
             set { sessions = value; }
+        }
+        public int Capacite
+        {
+            get { return capacite; }
+            set { capacite = value; }
         }
 
         public Salle(String nom, int capacite)
@@ -23,7 +37,11 @@ namespace GestionnaireEmploiDuTemps.Modele
             {
                 throw new ChampsException("L'un des champs de la salle n'est pas renseigné");
             }
+
+            this.nom = nom;
+            this.capacite = capacite;
         }
+
         public bool estDisponible(DateTime dateDebut, DateTime dateFin)
         {
             foreach (Session session in Sessions) // pour chaque session de la liste de sessions de notre promotion

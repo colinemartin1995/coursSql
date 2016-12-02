@@ -47,6 +47,9 @@ namespace GestionnaireEmploiDuTemps.Modele
             {
                 throw new ChampsException("L'un des champs de l'élève n'est pas renseigné");
             }
+            this.nom = nom;
+            this.prenom = prenom;
+            this.mail = mail;
         }
 
         public int getNbAbsences(DateTime dateDebut, DateTime dateFin)
