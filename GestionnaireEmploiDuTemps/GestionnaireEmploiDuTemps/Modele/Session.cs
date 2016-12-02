@@ -8,12 +8,13 @@ namespace GestionnaireEmploiDuTemps.Modele
 {
     class Session
     {
-        public DateTime dateDebut;
+        public DateTime dateDebut; //Attribut
         public DateTime dateFin;
         private Salle salle;
         private Promotion promotion;
         private Matiere matiere;
-        private List<Absence> absences;
+        private Formateur formateur;
+        private List<Absence> absences; 
 
         public List<Absence> Absences
         {
@@ -22,23 +23,39 @@ namespace GestionnaireEmploiDuTemps.Modele
         }
 
 
-        public Session(DateTime dateDebut, DateTime dateFin)
+        public Session(DateTime dateDebut, DateTime dateFin) // propriété
         {
             if (dateDebut >  dateFin)
             {
                 throw new DateException("L'heure de fin d'un cours ne peut être inférieure au l'heure de début");
             }
+            this.dateDebut = dateDebut;
+            this.dateFin = dateFin;
         }
         public DateTime DateDebut
         {
             get { return DateDebut; }
-            set { DateDebut = value; }
+            set
+            {
+                if(DateFin <= value)
+                {
+                    throw new DateException("Impossible de mettre une date de debut supérieure à une date de fin ");
+                }
+                dateDebut = value;
+            }
         }
 
-        public DateTime DateFin
+        public DateTime DateFin //permet de changer la valeur
         {
             get { return DateFin; }
-            set { DateFin = value; }
+            set
+            {   
+                if(DateDebut >= value)
+                {
+                    throw new DateException("Impossible de mettre une date de fin avant la date de début");
+                }
+                dateFin = value;
+            }
         }
 
         
@@ -49,7 +66,6 @@ namespace GestionnaireEmploiDuTemps.Modele
             set { salle = value; }
         }
 
-        private Formateur formateur;
 
         public Formateur Formateur
         {

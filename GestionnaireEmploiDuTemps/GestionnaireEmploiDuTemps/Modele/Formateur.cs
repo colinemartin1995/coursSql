@@ -15,6 +15,7 @@ namespace GestionnaireEmploiDuTemps.Modele
         private Matiere matiere;
         private List<Session> sessions;
 
+
         public List<Session> Sessions
         {
             get { return sessions; }
@@ -46,6 +47,11 @@ namespace GestionnaireEmploiDuTemps.Modele
             get { return telephone; }
             set { telephone = value; }
         }
+
+        public Formateur(String nom, String prenom, String mail, String telephone) // Constructeur pour Formateur
+        {
+
+        }
         public float heuresTravaillees(DateTime debutPeriode, DateTime finPeriode)
         {
             TimeSpan tempsDeTravail = new TimeSpan(0, 0, 0);
@@ -59,8 +65,6 @@ namespace GestionnaireEmploiDuTemps.Modele
                     //Indisponible
                     // var hours = Convert.ToSingle(ts.TotalHours);
                    heuresTravaillees = Convert.ToSingle(tempsDeTravail.TotalHours);
-                   
-
                 }
             }
             return heuresTravaillees;
