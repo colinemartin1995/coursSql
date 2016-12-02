@@ -46,7 +46,7 @@ namespace GestionnaireEmploiDuTemps.Modele
         {
             foreach (Session session in Sessions) // pour chaque session de la liste de sessions de notre promotion
             {
-                if (session.DateFin > dateDebut && session.DateDebut < dateFin)
+                if (!session.estHorsDeLaPlage(dateDebut, dateFin))
                 {
                     //Indisponible
                     return false;

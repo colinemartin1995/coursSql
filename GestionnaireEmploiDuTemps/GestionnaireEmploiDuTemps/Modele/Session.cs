@@ -22,16 +22,6 @@ namespace GestionnaireEmploiDuTemps.Modele
             set { absences = value; }
         }
 
-
-        public Session(DateTime dateDebut, DateTime dateFin) // propriété
-        {
-            if (dateDebut >  dateFin)
-            {
-                throw new DateException("L'heure de fin d'un cours ne peut être inférieure au l'heure de début");
-            }
-            this.dateDebut = dateDebut;
-            this.dateFin = dateFin;
-        }
         public DateTime DateDebut
         {
             get { return DateDebut; }
@@ -87,6 +77,28 @@ namespace GestionnaireEmploiDuTemps.Modele
             set { promotion = value; }
         }
 
+        public Session(DateTime dateDebut, DateTime dateFin) // Majuscule propriété ------ minuscule Attribut
+        {
+            if (dateDebut > dateFin)
+            {
+                throw new DateException("L'heure de fin d'un cours ne peut être inférieure au l'heure de début");
+            }
+            this.dateDebut = dateDebut;
+            this.dateFin = dateFin;
+        }
 
+        public bool estHorsDeLaPlage(DateTime dateDebutPlage, DateTime dateFinPlage)
+        {
+            if (this.DateFin > dateDebutPlage || this.DateDebut < dateFinPlage)
+            {
+                
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
