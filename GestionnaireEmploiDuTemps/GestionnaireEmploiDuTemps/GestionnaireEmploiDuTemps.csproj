@@ -63,6 +63,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Modele\ChampsException.cs" />
+    <Compile Include="Modele\DateException.cs" />
     <Compile Include="Modele\Destinataire.cs" />
     <Compile Include="Modele\Absence.cs" />
     <Compile Include="Modele\EffectifException.cs" />

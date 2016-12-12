@@ -89,16 +89,7 @@ namespace GestionnaireEmploiDuTemps.Modele
 
         public bool estHorsDeLaPlage(DateTime dateDebutPlage, DateTime dateFinPlage)
         {
-            if (this.DateFin > dateDebutPlage || this.DateDebut < dateFinPlage)
-            {
-                
-                return true;
-
-            }
-            else
-            {
-                return false;
-            }
+            return this.DateFin > dateDebutPlage || this.DateDebut < dateFinPlage;
         }
     }
 }
