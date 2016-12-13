@@ -35,3 +35,12 @@ FROM categorie, produit
 WHERE categorie.id = produit.categorie_id
 ORDER BY categorie.nom
 
+
+-- Jointure interne permet même resultat qu'au dessus mais optimisée -
+SELECT 
+	categorie.nom AS 'Nom de la categorie',
+	CONCAT(produit.nom,'(', code, ')') AS Produit
+FROM Categorie -- jointure ---
+	INNER JOIN Produit ON Categorie.id = Produit.categorie_id -- table sur laquelle on veut faire la jointure Produit -- 
+	
+	
