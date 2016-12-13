@@ -16,9 +16,27 @@ FROM Commande
 	INNER JOIN Client ON Client.id= Commande.client_id
 GROUP BY Client.nom;
 
--- Nombre de produits par Client -- 
+--  Total de produits par Client  -- 
 SELECT Client.nom, SUM(quantite)
 FROM LigneCommande
-	INNER JOIN Commande ON Commande.client_id = Client.id
-	INNER JOIN LigneCommande ON LigneCommande.commande_id = Commande.id
+	INNER JOIN Commande ON Commande.id  = LigneCommande.commande_id
+	INNER JOIN Client ON Commande.client_id = Client.id
 GROUP BY Client.nom;
+
+-- nombre de produit différent -- 
+
+SELECT Client.nom, COUNT(quantite)
+FROM LigneCommande
+	INNER JOIN Commande ON Commande.id  = LigneCommande.commande_id
+	INNER JOIN Client ON Commande.client_id = Client.id
+GROUP BY Client.nom;
+
+/*SELECT *FROM LigneCommande*/
+--Nombre de clients qui ont commandé des produits, par catégorie --
+
+SELECT Categorie.nom, COUNT(client_id) AS 'Nombre de client'
+	FROM Categorie
+	INNER JOIN Categorie ON Categorie.id = Produit.categorie_id
+	INNER JOIN LigneCommande ON LigneCommande.produit_id = Produit.id
+	INNER JOIN Commande ON Commande.client_id = Client.id	
+GROUP BY Categorie.nom;
