@@ -35,8 +35,9 @@ GROUP BY Client.nom;
 --Nombre de clients qui ont commandé des produits, par catégorie --
 
 SELECT Categorie.nom, COUNT(client_id) AS 'Nombre de client'
-	FROM Categorie
+	FROM Client 
+	INNER JOIN Commande ON Commande.client_id = Client.id
+	INNER JOIN LigneCommande ON LigneCommande.commande_id = Commande.id
+	INNER JOIN Produit ON Produit.id = LigneCommande.produit_id
 	INNER JOIN Categorie ON Categorie.id = Produit.categorie_id
-	INNER JOIN LigneCommande ON LigneCommande.produit_id = Produit.id
-	INNER JOIN Commande ON Commande.client_id = Client.id	
 GROUP BY Categorie.nom;

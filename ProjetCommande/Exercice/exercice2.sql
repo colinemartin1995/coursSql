@@ -3,6 +3,7 @@
  
  
  -- DISTINCT permet de ne pas note deux fois un client si au cours d'une même commande il a commandé 2 fois plus de 10 articles identiques--
+ 
 SELECT DISTINCT CONCAT(Client.nom ,' ',Client.prenom)
 FROM Client
 	INNER JOIN Commande ON Commande.client_id = Client.id
